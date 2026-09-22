@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modern responsive Website Dashboard with analytics, orders, customers and products.">
+  <title>Website Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">W</div>
+        <div><strong>WebDash</strong><span>Admin Console</span></div>
+      </div>
+      <nav class="nav">
+        <a class="nav-link active" href="#overview">⌂ <span>Overview</span></a>
+        <a class="nav-link" href="#analytics">◈ <span>Analytics</span></a>
+        <a class="nav-link" href="#orders">▤ <span>Orders</span></a>
+        <a class="nav-link" href="#customers">♙ <span>Customers</span></a>
+        <a class="nav-link" href="#products">▦ <span>Products</span></a>
+      </nav>
+      <div class="side-bottom">
+        <button class="side-button" id="themeBtn">◐ <span>Dark mode</span></button>
+        <button class="side-button" id="signOutBtn">↪ <span>Sign out</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search orders, customers..." aria-label="Search dashboard">
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" id="notificationBtn" aria-label="Notifications">♢<i></i></button>
+          <div class="user"><div class="avatar">DN</div><div class="user-copy"><strong>Desmond</strong><span>Administrator</span></div></div>
+        </div>
+      </header>
+
+      <section class="content" id="overview">
+        <div class="welcome">
+          <div>
+            <p class="eyebrow">Dashboard overview</p>
+            <h1>Good morning, Desmond <span>👋</span></h1>
+            <p>Track your business performance and recent activity.</p>
+          </div>
+          <button class="primary-btn" id="exportBtn">↓ Export report</button>
+        </div>
+
+        <div class="metrics">
+          <article class="card metric-card">
+            <div class="metric-top"><span>Total revenue</span><b>+12.8%</b></div>
+            <strong>$24,680</strong><small>Compared with last month</small>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-top"><span>Total orders</span><b>+8.4%</b></div>
+            <strong>1,284</strong><small>96 orders this week</small>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-top"><span>Customers</span><b>+5.2%</b></div>
+            <strong>8,549</strong><small>423 new this month</small>
+          </article>
+          <article class="card metric-card">
+            <div class="metric-top"><span>Conversion</span><b>+1.1%</b></div>
+            <strong>4.86%</strong><small>Store conversion rate</small>
+          </article>
+        </div>
+
+        <div class="two-col" id="analytics">
+          <section class="card chart-card">
+            <div class="section-head">
+              <div><h2>Revenue overview</h2><p>Monthly performance</p></div>
+              <select id="periodSelect" aria-label="Revenue period">
+                <option value="6">Last 6 months</option>
+                <option value="12">Last 12 months</option>
+              </select>
+            </div>
+            <div class="chart" id="revenueChart" aria-label="Revenue chart"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-head"><div><h2>Traffic sources</h2><p>Where visitors come from</p></div></div>
+            <div class="sources">
+              <div class="source"><div><span>Organic search</span><b>42%</b></div><em><i style="width:42%"></i></em></div>
+              <div class="source"><div><span>Direct</span><b>28%</b></div><em><i style="width:28%"></i></em></div>
+              <div class="source"><div><span>Social media</span><b>18%</b></div><em><i style="width:18%"></i></em></div>
+              <div class="source"><div><span>Referral</span><b>12%</b></div><em><i style="width:12%"></i></em></div>
+            </div>
+            <div class="traffic-total"><span>Returning visitors</span><strong>31.6%</strong></div>
+          </section>
+        </div>
+
+        <section class="card" id="orders">
+          <div class="section-head">
+            <div><h2>Recent orders</h2><p>Latest transactions from your store</p></div>
+            <button class="ghost-btn" id="viewAllBtn">View all</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Order</th><th>Customer</th><th>Product</th><th>Date</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody id="ordersTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="two-col bottom-grid">
+          <section class="card" id="customers">
+            <div class="section-head"><div><h2>Top customers</h2><p>Highest value customers</p></div></div>
+            <div class="customer-list" id="customersList"></div>
+          </section>
+          <section class="card" id="products">
+            <div class="section-head"><div><h2>Product performance</h2><p>Best selling products</p></div></div>
+            <div class="product-list" id="productsList"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
